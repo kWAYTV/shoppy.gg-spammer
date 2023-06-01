@@ -78,10 +78,9 @@ class Spammer:
         product = input("Enter some valid product code from the shop you want to spam: ")
         threads = int(input("Enter the number of threads you want to use (recommended: 10): "))
         self.clear()
-        with ThreadPoolExecutor(max_workers=threads) as executor:
-            for _ in range(threads):
-                executor.submit(self.send_request(product))
-        logger.info(f"Sent: {self.sent_count} - Ratelimited: {self.ratelimited_count} - Product: {self.product}")
+        with ThreadPoolExecutor(max_workers=int(threads)) as executor:
+            for _ in range(int(threads)):
+                executor.submit(lambda: self.send_request(product))
 
 if __name__ == "__main__":
     os.system(f"title Shoppy.gg Spammer - discord.gg/kws")
