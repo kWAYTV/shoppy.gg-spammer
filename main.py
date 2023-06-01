@@ -28,8 +28,7 @@ class Spammer:
     def clear(self):
         system("cls" if name in ("nt", "dos") else "clear")
 
-    
-        # Print logo
+    # Print logo
     def print_logo(self):
         self.clear()
         print(Center.XCenter(Colorate.Vertical(Colors.white_to_blue, self.logo, 1)))
