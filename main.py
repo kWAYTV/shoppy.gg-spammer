@@ -77,7 +77,7 @@ class Spammer:
         self.print_logo()
         product = input("Enter some valid product code from the shop you want to spam: ")
         threads = int(input("Enter the number of threads you want to use (recommended: 10): "))
-        self.clear()
+        self.print_logo()
         with ThreadPoolExecutor(max_workers=int(threads)) as executor:
             for _ in range(int(threads)):
                 executor.submit(lambda: self.send_request(product))
